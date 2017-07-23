@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalog>
+    <maxid>4</maxid>
+    <item id="1">
+        <caption>Python</caption>
+        <item id="4">
+            <caption>Test</caption>
+        </item>
+    </item>
+    <item id="2">
+        <caption>Zope</caption>
+    </item>
+</catalog>
