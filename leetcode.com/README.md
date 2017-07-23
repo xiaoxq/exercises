@@ -1,3 +1,3 @@
-= Leetcode =
+# Leetcode
 
-My solutions for https://leetcode.com.
+My exercises for https://leetcode.com.
