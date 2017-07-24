@@ -1,3 +1,6 @@
+# System requirements:
+#   sudo apt-get install python3-tk
+
 jupyter
 matplotlib
 numpy

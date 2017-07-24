@@ -1,4 +1,4 @@
-#!/usr/bin/env pyhon
+#!/usr/bin/env python
 """Load data."""
 
 import os
