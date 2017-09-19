@@ -2,6 +2,7 @@
 """Show training_set geo scatter plot."""
 
 import matplotlib.pyplot as plt
+import pandas
 
 import load_data
 
@@ -9,10 +10,13 @@ import load_data
 def main():
     """Main function."""
     training_set, _ = load_data.split_train_and_test_set()
-    training_set.plot(kind="scatter", x="longitude", y="latitude", alpha=0.4,
-                      s=training_set["population"]/100, label="population",
-                      c="median_house_value", cmap=plt.get_cmap("jet"),
-                      colorbar=True)
+    cols = [
+        "median_house_value",
+        "median_income",
+        "total_rooms",
+        "housing_median_age",
+    ]
+    pandas.plotting.scatter_matrix(training_set[cols], figsize=(12, 8))
     plt.show()
 
 if __name__ == '__main__':
