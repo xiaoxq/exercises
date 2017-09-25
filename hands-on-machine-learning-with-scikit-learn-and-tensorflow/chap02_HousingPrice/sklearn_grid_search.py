@@ -36,11 +36,13 @@ def main():
     housing, label = load_data.split_dataframe_column(test_set,
                                                       'median_house_value')
     housing_test = sklearn_feature_union.prepare_data(housing)
-    predition = grid_search.predict(housing_test)
+    predition = grid_search.best_estimator_.predict(housing_test)
     grid_mse = mean_squared_error(label, predition)
     grid_rmse = np.sqrt(grid_mse)
     print('Best params = {}'.format(grid_search.best_params_))
     print('root_mean_squared_error = {}'.format(grid_rmse))
+    print('Prediction: {}'.format(predition[:5]))
+    print('Label: {}'.format(list(label.iloc[:5])))
 
 if __name__ == '__main__':
     main()
