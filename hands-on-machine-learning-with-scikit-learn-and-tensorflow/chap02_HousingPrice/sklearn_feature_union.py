@@ -24,14 +24,11 @@ class DataFrameSelector(BaseEstimator, TransformerMixin):
         return X[self.attribute_names].values
 
 
-def prepare_training_data():
+def prepare_data(data_set):
     """Prepare training data."""
-    training_set, _ = load_data.split_train_and_test_set()
-
-    num_attribs = list(training_set)
+    num_attribs = list(data_set)
     num_attribs.remove('ocean_proximity')
     cat_attribs = ['ocean_proximity']
-    print (cat_attribs)
 
     num_pipeline = Pipeline([
         ('selector', DataFrameSelector(num_attribs)),
@@ -50,12 +47,13 @@ def prepare_training_data():
         ("cat_pipeline", cat_pipeline),
     ])
 
-    return full_pipeline.fit_transform(training_set)
+    return full_pipeline.fit_transform(data_set)
 
 
 def main():
     """Main function."""
-    housing_prepared = prepare_training_data()
+    training_set, _ = load_data.split_train_and_test_set()
+    housing_prepared = prepare_data(training_set)
     print(housing_prepared)
     print(housing_prepared.shape)
 

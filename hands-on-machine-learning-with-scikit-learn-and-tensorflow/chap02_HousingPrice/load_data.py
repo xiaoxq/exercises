@@ -34,3 +34,8 @@ def split_train_and_test_set():
         # Actually we do only one split.
         break
     return strat_train_set, strat_test_set
+
+
+def split_dataframe_column(frame, column):
+    """Split a dataframe to (N-1, 1) parts"""
+    return frame.drop(column, axis=1), frame[column]
