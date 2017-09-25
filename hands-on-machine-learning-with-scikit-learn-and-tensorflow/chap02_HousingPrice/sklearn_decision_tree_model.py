@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Scikit learn linear model."""
+"""Scikit learn decision tree model."""
 
-from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn_pipeline import CombinedAttributesAdder
+from sklearn.tree import DecisionTreeRegressor
 import numpy as np
 
 import load_data
@@ -20,17 +20,17 @@ def main():
     housing_training = sklearn_feature_union.prepare_data(housing)
 
     # Train
-    lin_reg = LinearRegression()
-    lin_reg.fit(housing_training, label)
+    tree_reg = DecisionTreeRegressor()
+    tree_reg.fit(housing_training, label)
 
-    # Evaluate
-    housing, label = load_data.split_dataframe_column(test_set,
-                                                      'median_house_value')
+    # Evaluate on training data to see the over fitting.
+    # housing, label = load_data.split_dataframe_column(test_set,
+    #                                                   'median_house_value')
     housing_test = sklearn_feature_union.prepare_data(housing)
-    predition = lin_reg.predict(housing_test)
-    lin_mse = mean_squared_error(label, predition)
-    lin_rmse = np.sqrt(lin_mse)
-    print('root_mean_squared_error = {}'.format(lin_rmse))
+    predition = tree_reg.predict(housing_test)
+    tree_mse = mean_squared_error(label, predition)
+    tree_rmse = np.sqrt(tree_mse)
+    print('root_mean_squared_error = {}'.format(tree_rmse))
 
 if __name__ == '__main__':
     main()

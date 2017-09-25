@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scikit learn pipeline."""
+"""Scikit learn feature union."""
 
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import FeatureUnion, Pipeline
