@@ -2,4 +2,7 @@ matplotlib
 numpy
 pandas
 scipy
-sklearn
+
+# sklearn 0.19 has a change which causes problem:
+# https://stackoverflow.com/questions/46162855/fit-transform-takes-2-positional-arguments-but-3-were-given-with-labelbinarize
+scikit-learn == 0.18

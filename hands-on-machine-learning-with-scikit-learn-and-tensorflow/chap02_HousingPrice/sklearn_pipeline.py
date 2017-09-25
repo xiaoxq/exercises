@@ -3,13 +3,15 @@
 
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import Imputer, StandardScaler
 import numpy as np
-import sklearn.preprocessing as preprocessing
 
 import load_data
 
 
 class CombinedAttributesAdder(BaseEstimator, TransformerMixin):
+    """CombinedAttributesAdder Estimator"""
+
     def __init__(self, add_bedrooms_per_room = True): # no *args or **kargs
         self.add_bedrooms_per_room = add_bedrooms_per_room
 
@@ -39,9 +41,9 @@ def main():
     training_set, _ = load_data.split_train_and_test_set()
     housing_num = training_set.drop("ocean_proximity", axis=1)
     num_pipeline = Pipeline([
-        ('imputer', preprocessing.Imputer(strategy="median")),
+        ('imputer', Imputer(strategy="median")),
         ('attribs_adder', CombinedAttributesAdder()),
-        ('std_scaler', preprocessing.StandardScaler()),
+        ('std_scaler', StandardScaler()),
     ])
     housing_num_tr = num_pipeline.fit_transform(housing_num)
 
