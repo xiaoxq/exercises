@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Classifier which tests if an images is 5."""
+"""Classifier which tests if an images is 5, plot precision and recall."""
 
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import precision_recall_curve
