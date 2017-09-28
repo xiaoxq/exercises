@@ -25,6 +25,6 @@ if __name__ == '__main__':
                                method="decision_function")
     print('roc_auc_score = {}'.format(roc_auc_score(train_label_5, scores)))
 
-    fpr, tpr, thresholds = roc_curve(train_label_5, scores)
+    fpr, tpr, _ = roc_curve(train_label_5, scores)
     plot_roc_curve(fpr, tpr)
     plt.show()
