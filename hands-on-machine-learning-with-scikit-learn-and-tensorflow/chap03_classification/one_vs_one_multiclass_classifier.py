@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Classifier which tests if an images is 5."""
+"""One-vs-one classifier."""
 
 from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import cross_val_score
