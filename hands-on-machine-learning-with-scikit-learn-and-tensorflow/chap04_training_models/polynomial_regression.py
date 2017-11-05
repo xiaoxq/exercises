@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Linear regression with gradient descent."""
+"""Linear regression with polynomial regression."""
 
 import matplotlib.pyplot as plt
 import numpy as np
