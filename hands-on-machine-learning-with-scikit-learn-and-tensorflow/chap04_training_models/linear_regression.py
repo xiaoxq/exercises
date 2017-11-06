@@ -15,18 +15,18 @@ if __name__ == '__main__':
     # With numpy.
     theta_best = np.linalg.inv(X_b.T.dot(X_b)).dot(X_b.T).dot(y)
     X_new_b = np.c_[np.ones((2, 1)), X_new]
-    y_predict1 = X_new_b.dot(theta_best)
+    y_predict = X_new_b.dot(theta_best)
     plt.subplot(121)
-    plt.plot(X_new, y_predict1, "r-")
+    plt.plot(X_new, y_predict, "r-")
     plt.plot(X, y, "b.")
     plt.axis([0, 2, 0, 15])
 
     # With scipy.
     lin_reg = LinearRegression()
     lin_reg.fit(X, y)
-    y_predict2 = lin_reg.predict(X_new)
+    y_predict = lin_reg.predict(X_new)
     plt.subplot(122)
-    plt.plot(X_new, y_predict2, "r-")
+    plt.plot(X_new, y_predict, "r-")
     plt.plot(X, y, "b.")
     plt.axis([0, 2, 0, 15])
 

@@ -27,20 +27,20 @@ if __name__ == '__main__':
             eta = learning_schedule(epoch * m + i)
             theta = theta - eta * gradients
     X_new_b = np.c_[np.ones((2, 1)), X_new]
-    y_predict1 = X_new_b.dot(theta)
+    y_predict = X_new_b.dot(theta)
 
     plt.subplot(121)
-    plt.plot(X_new_b, y_predict1, "r-")
+    plt.plot(X_new_b, y_predict, "r-")
     plt.plot(X, y, "b.")
     plt.axis([0, 2, 0, 15])
 
     # With scipy.
     sgd_reg = SGDRegressor(n_iter=50, penalty=None, eta0=0.1)
     sgd_reg.fit(X, y.ravel())
-    y_predict2 = sgd_reg.predict(X_new)
+    y_predict = sgd_reg.predict(X_new)
 
     plt.subplot(122)
-    plt.plot(X_new, y_predict2, "r-")
+    plt.plot(X_new, y_predict, "r-")
     plt.plot(X, y, "b.")
     plt.axis([0, 2, 0, 15])
 
