@@ -3,7 +3,8 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-from sklearn.linear_model import Lasso, LinearRegression, Ridge, SGDRegressor
+from sklearn.linear_model import Lasso
+from sklearn.linear_model import SGDRegressor
 from sklearn.preprocessing import PolynomialFeatures
 
 if __name__ == '__main__':
