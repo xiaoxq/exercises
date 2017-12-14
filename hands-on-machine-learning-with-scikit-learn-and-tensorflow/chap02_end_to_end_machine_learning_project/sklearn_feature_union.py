@@ -10,7 +10,7 @@ import sklearn_pipeline
 
 
 class DataFrameSelector(BaseEstimator, TransformerMixin):
-    """DataFrameSelector Estimator"""
+    """DataFrameSelector estimator"""
 
     def __init__(self, attribute_names):
         self.attribute_names = attribute_names
@@ -20,7 +20,7 @@ class DataFrameSelector(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X):
-        """Select value by addtribute names."""
+        """Select value by attribute names."""
         return X[self.attribute_names].values
 
 
