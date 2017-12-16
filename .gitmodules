@@ -1,3 +1,0 @@
-[submodule "hands-on-machine-learning-with-scikit-learn-and-tensorflow/data/handson-ml"]
-	path = hands-on-machine-learning-with-scikit-learn-and-tensorflow/data/handson-ml
-	url = git@github.com:ageron/handson-ml.git

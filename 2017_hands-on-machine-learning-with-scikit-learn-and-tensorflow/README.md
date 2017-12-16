@@ -18,5 +18,6 @@ conda env create -f conda_env.yml
 1. Download data in submodule.
 
 ```bash
-git submodule update
+git submodule add git@github.com:ageron/handson-ml.git data/handson-ml
+git submodule update --init
 ```
