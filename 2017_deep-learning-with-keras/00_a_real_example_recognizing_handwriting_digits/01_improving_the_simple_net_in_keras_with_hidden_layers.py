@@ -23,9 +23,18 @@ def GetData():
 
 def BuildModel():
     """Return model"""
+    N_HIDDEN = 128
+
     model = keras.models.Sequential()
-    model.add(keras.layers.core.Dense(NB_CLASSES, input_shape=(RESHAPED,)))
+    model.add(keras.layers.core.Dense(N_HIDDEN, input_shape=(RESHAPED,)))
+    model.add(keras.layers.core.Activation('relu'))
+
+    model.add(keras.layers.core.Dense(N_HIDDEN))
+    model.add(keras.layers.core.Activation('relu'))
+
+    model.add(keras.layers.core.Dense(NB_CLASSES))
     model.add(keras.layers.core.Activation('softmax'))
+
     model.compile(loss='categorical_crossentropy',
                   optimizer=keras.optimizers.SGD(),
                   metrics=['accuracy'])
@@ -34,7 +43,7 @@ def BuildModel():
 
 def Train(model, X_train, Y_train):
     """Train on data"""
-    EPOCHS = 200
+    EPOCHS = 100
     BATCH_SIZE = 128
     VALIDATION_SPLIT = 0.2  # How much TRAIN is reserved for VALIDATION
 
