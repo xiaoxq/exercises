@@ -10,5 +10,6 @@ dependencies:
   - keras-gpu
   - matplotlib
   - numpy
+  - opencv
   - pandas
   - tensorflow-gpu
