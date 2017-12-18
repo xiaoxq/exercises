@@ -9,11 +9,10 @@ VERBOSE = 1
 
 def GetData():
     """Return X_train, Y_train, X_test, Y_test"""
-    (X_train, y_train), (X_test, y_test) = keras.datasets.mnist.load_data()
-    # X_train is 60000 rows of 28x28 values. Normalize it.
-    X_train = (X_train.astype('float32') / 255)[:, :, :, np.newaxis]
-    # X_test is 10000 rows of 28x28 values.
-    X_test = (X_test.astype('float32') / 255)[:, :, :, np.newaxis]
+    (X_train, y_train), (X_test, y_test) = keras.datasets.cifar10.load_data()
+    # Data point is 32x32 images with 3 channels. Normalize it.
+    X_train = X_train.astype('float32') / 255
+    X_test = X_test.astype('float32') / 255
     # Convert class vectors to binary class matrices
     Y_train = keras.utils.np_utils.to_categorical(y_train, NB_CLASSES)
     Y_test = keras.utils.np_utils.to_categorical(y_test, NB_CLASSES)
@@ -22,32 +21,29 @@ def GetData():
 
 def BuildModel():
     """Return model"""
-    INPUT_SHAPE = (28, 28, 1)
     N_HIDDEN = 512
-    DROPOUT = 0.3
+    CONV_KERNEL = (3, 3)
+    INPUT_SHAPE = (32, 32, 3)
+    POOL_DROPOUT = 0.25
+    HIDDEN_DROPOUT = 0.5
 
     model = keras.models.Sequential()
     model.add(keras.layers.convolutional.Conv2D(
-        20, kernel_size=5, padding="same", input_shape=INPUT_SHAPE))
+        32, CONV_KERNEL, padding="same", input_shape=INPUT_SHAPE))
     model.add(keras.layers.core.Activation('relu'))
-    model.add(keras.layers.convolutional.MaxPooling2D(
-        pool_size=(2, 2), strides=(2, 2)))
-
-    model.add(keras.layers.convolutional.Conv2D(
-        50, kernel_size=5, border_mode="same"))
-    model.add(keras.layers.core.Activation("relu"))
-    model.add(keras.layers.convolutional.MaxPooling2D(
-        pool_size=(2, 2), strides=(2, 2)))
+    model.add(keras.layers.convolutional.MaxPooling2D(pool_size=(2, 2)))
+    model.add(keras.layers.core.Dropout(POOL_DROPOUT))
 
     model.add(keras.layers.core.Flatten())
     model.add(keras.layers.core.Dense(N_HIDDEN))
     model.add(keras.layers.core.Activation("relu"))
+    model.add(keras.layers.core.Dropout(HIDDEN_DROPOUT))
 
     model.add(keras.layers.core.Dense(NB_CLASSES))
     model.add(keras.layers.core.Activation('softmax'))
 
     model.compile(loss='categorical_crossentropy',
-                  optimizer=keras.optimizers.Adam(),
+                  optimizer=keras.optimizers.RMSprop(),
                   metrics=['accuracy'])
     return model
 
