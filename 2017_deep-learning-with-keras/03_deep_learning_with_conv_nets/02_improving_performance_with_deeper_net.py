@@ -32,16 +32,18 @@ def BuildModel():
         32, CONV_KERNEL, padding="same", input_shape=INPUT_SHAPE))
     model.add(keras.layers.core.Activation('relu'))
 
-    model.add(keras.layers.convolutional.Conv2D(32, (3, 3), padding='same'))
+    model.add(keras.layers.convolutional.Conv2D(
+        32, CONV_KERNEL, padding='same'))
     model.add(keras.layers.core.Activation('relu'))
 
     model.add(keras.layers.convolutional.MaxPooling2D(pool_size=(2, 2)))
     model.add(keras.layers.core.Dropout(POOL_DROPOUT))
 
-    model.add(keras.layers.convolutional.Conv2D(64, (3, 3), padding='same'))
+    model.add(keras.layers.convolutional.Conv2D(
+        64, CONV_KERNEL, padding='same'))
     model.add(keras.layers.core.Activation('relu'))
 
-    model.add(keras.layers.convolutional.Conv2D(64, (3, 3)))
+    model.add(keras.layers.convolutional.Conv2D(64, CONV_KERNEL))
     model.add(keras.layers.core.Activation('relu'))
 
     model.add(keras.layers.convolutional.MaxPooling2D(pool_size=(2, 2)))
