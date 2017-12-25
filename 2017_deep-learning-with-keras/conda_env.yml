@@ -13,3 +13,7 @@ dependencies:
   - opencv
   - pandas
   - tensorflow-gpu
+
+  - pip
+    - keras-adversarial
+
