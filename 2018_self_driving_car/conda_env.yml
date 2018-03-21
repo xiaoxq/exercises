@@ -1,0 +1,12 @@
+# conda env create|update -f conda_env.yml
+# source activate hands-on-machine-learning
+# ...
+# source deactivate
+# conda env remove hands-on-machine-learning
+name: self_driving_car
+dependencies:
+  - python=3.6
+
+  - matplotlib
+  - numpy
+  - pillow
