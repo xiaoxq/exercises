@@ -9,4 +9,5 @@ dependencies:
 
   - matplotlib
   - numpy
+  - opencv
   - pillow
