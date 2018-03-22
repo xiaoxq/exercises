@@ -25,12 +25,6 @@ fit_right = np.polyfit((right_bottom[0], apex[0]),
 fit_bottom = np.polyfit((left_bottom[0], right_bottom[0]),
                         (left_bottom[1], right_bottom[1]), 1)
 
-# Mask pixels below the threshold
-rgb_threshold = [200, 200, 200]
-color_thresholds = (image[:, :, 0] < rgb_threshold[0]) | \
-                    (image[:, :, 1] < rgb_threshold[1]) | \
-                    (image[:, :, 2] < rgb_threshold[2])
-
 # Find the region inside the lines
 ysize = image.shape[0]
 xsize = image.shape[1]
@@ -38,6 +32,12 @@ XX, YY = np.meshgrid(np.arange(0, xsize), np.arange(0, ysize))
 region_thresholds = (YY > (XX * fit_left[0] + fit_left[1])) & \
                     (YY > (XX * fit_right[0] + fit_right[1])) & \
                     (YY < (XX * fit_bottom[0] + fit_bottom[1]))
+
+# Mask pixels below the threshold
+rgb_threshold = [200, 200, 200]
+color_thresholds = (image[:, :, 0] < rgb_threshold[0]) | \
+                    (image[:, :, 1] < rgb_threshold[1]) | \
+                    (image[:, :, 2] < rgb_threshold[2])
 # Mask color selection
 color_select= np.copy(image)
 color_select[color_thresholds] = [0, 0, 0]
