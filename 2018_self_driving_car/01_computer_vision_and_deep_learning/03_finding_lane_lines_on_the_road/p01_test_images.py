@@ -1,6 +1,8 @@
 #!/usr/bin/env python
+import os
 
 import cv2
+import matplotlib.image as mpimg
 import numpy as np
 
 
@@ -26,7 +28,7 @@ def region_of_interest(img, vertices):
     return cv2.bitwise_and(img, mask)
 
 
-def draw_lines(img, lines, color=[255, 0, 0], thickness=2):
+def draw_lines(img, lines, bgr_color=[0, 0, 255], thickness=2):
     """
     NOTE: this is the function you might want to use as a starting point once
     you want to average/extrapolate the line segments you detect to map out the
@@ -45,7 +47,7 @@ def draw_lines(img, lines, color=[255, 0, 0], thickness=2):
     """
     for line in lines:
         for x1, y1, x2, y2 in line:
-            cv2.line(img, (x1, y1), (x2, y2), color, thickness)
+            cv2.line(img, (x1, y1), (x2, y2), bgr_color, thickness)
 
 
 def hough_lines(img, rho, theta, threshold, min_line_len, max_line_gap):
@@ -59,3 +61,42 @@ def hough_lines(img, rho, theta, threshold, min_line_len, max_line_gap):
     line_img = np.zeros((img.shape[0], img.shape[1], 3), dtype=np.uint8)
     draw_lines(line_img, lines)
     return line_img
+
+
+def process_img(img_data):
+    """Process an image."""
+    gray = cv2.cvtColor(img_data, cv2.COLOR_RGB2GRAY)
+
+    kernel_size = 3
+    blur_gray = cv2.GaussianBlur(gray, (kernel_size, kernel_size), 0)
+
+    low_threshold = 50
+    high_threshold = 200
+    edges = cv2.Canny(blur_gray, low_threshold, high_threshold)
+
+    left_bottom = [0, 539]
+    right_bottom = [960, 539]
+    apex = [480, 305]
+    masked_edges = region_of_interest(
+        edges, np.array([[left_bottom, right_bottom, apex]]))
+
+    RHO = 1
+    THETA = np.pi / 180
+    min_pixel_threshold = 5
+    min_line_length = 150
+    max_line_gap = 100
+    line_img = hough_lines(masked_edges, RHO, THETA, min_pixel_threshold,
+                           min_line_length, max_line_gap)
+    return cv2.addWeighted(img_data, 0.8, line_img, 1, 0)
+
+
+if __name__ == '__main__':
+    PWD = os.path.dirname(__file__)
+    input_dir = os.path.join(PWD, '3rd_CarND-LaneLines-P1/test_images')
+    output_dir = os.path.join(PWD, 'test_images_output')
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    for img_file in os.listdir(input_dir):
+        img = mpimg.imread(os.path.join(input_dir, img_file))
+        cv2.imwrite(os.path.join(output_dir, img_file), process_img(img))

@@ -11,3 +11,6 @@ dependencies:
   - numpy
   - opencv
   - pillow
+
+  - pip
+    - moviepy
