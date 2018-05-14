@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import tensorflow as tf
-import tensorflow.contrib.learn as learn
+import tensorflow.contrib.learn as tflearn
 
 
 # Read MNIST data
-dataset = learn.datasets.mnist.read_data_sets('MNIST-data', one_hot=True)
+dataset = tflearn.datasets.mnist.read_data_sets('MNIST-data', one_hot=True)
 
 # Placeholders for MNIST images
 image_holder = tf.placeholder(tf.float32, [None, 784])
