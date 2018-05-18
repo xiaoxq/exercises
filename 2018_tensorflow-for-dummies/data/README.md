@@ -8,3 +8,10 @@ See http://www.cs.toronto.edu/~kriz/cifar.html
 wget http://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
 tar zxf cifar-10-python.tar.gz
 ```
+
+## Love Craft
+
+```bash
+wget https://raw.githubusercontent.com/urschrei/lovecraft/master/lovecraft.txt
+```
+
