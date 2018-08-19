@@ -1,9 +1,0 @@
-{
-  "name": "2018_getting_started_with_react_vr",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "react-vr": "^2.0.0"
-  }
-}
