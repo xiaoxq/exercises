@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 MAINTAINER Aaron Xiao <xiaoxiangquan@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive
