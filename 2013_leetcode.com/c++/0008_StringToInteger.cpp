@@ -10,7 +10,7 @@ class Solution {
       return 0;
     }
     const bool is_neg = str[pos] == '-';
-	if (is_neg || str[pos] == '+') {
+    if (is_neg || str[pos] == '+') {
       ++pos;
     }
     if (pos == str.length() || str[pos] < '0' || str[pos] > '9') {
@@ -22,7 +22,7 @@ class Solution {
       const int next_result = result * 10 + (str[pos] - '0');
       if (next_result / 10 != result) {
         return is_neg ? INT_MIN : INT_MAX;
-	  }
+      }
       result = next_result;
       ++pos;
     }

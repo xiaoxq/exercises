@@ -10,40 +10,40 @@ using namespace std;
 // Definition for binary tree
 struct TreeNode
 {
-	int val;
-	TreeNode *left;
-	TreeNode *right;
-	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
 class Solution
 {
 public:
-	vector<vector<int> > pathSum(TreeNode *root, int sum)
-	{
-		vector<int> prefix;
-		vector<vector<int> > result;
-		pathSum( root, sum, prefix, result );
-		return result;
-	}
+    vector<vector<int> > pathSum(TreeNode *root, int sum)
+    {
+        vector<int> prefix;
+        vector<vector<int> > result;
+        pathSum( root, sum, prefix, result );
+        return result;
+    }
 private:
-	void pathSum(TreeNode *root, int sum,
-			vector<int>& prefix, vector<vector<int> >& result )
-	{
-		if( root==NULL )
-			return;
+    void pathSum(TreeNode *root, int sum,
+            vector<int>& prefix, vector<vector<int> >& result )
+    {
+        if( root==NULL )
+            return;
 
-		sum -= root->val;
-		prefix.push_back( root->val );
+        sum -= root->val;
+        prefix.push_back( root->val );
 
-		if( sum==0 && root->left==NULL && root->right==NULL )
-			result.push_back( prefix );
-		else
-		{
-			pathSum( root->left, sum, prefix, result );
-			pathSum( root->right, sum, prefix, result );
-		}
+        if( sum==0 && root->left==NULL && root->right==NULL )
+            result.push_back( prefix );
+        else
+        {
+            pathSum( root->left, sum, prefix, result );
+            pathSum( root->right, sum, prefix, result );
+        }
 
-		prefix.pop_back();
-	}
+        prefix.pop_back();
+    }
 };

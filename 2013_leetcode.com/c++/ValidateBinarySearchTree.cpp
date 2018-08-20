@@ -9,33 +9,33 @@
 // Definition for binary tree
 struct TreeNode
 {
-	int val;
-	TreeNode *left;
-	TreeNode *right;
-	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
 class Solution
 {
 public:
-	bool isValidBST(TreeNode *root)
-	{
-		int lastVal = INT_MIN;
-		return isValidBST(root, lastVal);
-	}
+    bool isValidBST(TreeNode *root)
+    {
+        int lastVal = INT_MIN;
+        return isValidBST(root, lastVal);
+    }
 private:
-	bool isValidBST(TreeNode *root, int& lastVal)
-	{
-		if( root==NULL )
-			return true;
+    bool isValidBST(TreeNode *root, int& lastVal)
+    {
+        if( root==NULL )
+            return true;
 
-		if( !isValidBST(root->left, lastVal) )
-			return false;
+        if( !isValidBST(root->left, lastVal) )
+            return false;
 
-		if( lastVal >= root->val )
-			return false;
-		lastVal = root->val;
+        if( lastVal >= root->val )
+            return false;
+        lastVal = root->val;
 
-		return isValidBST(root->right, lastVal);
-	}
+        return isValidBST(root->right, lastVal);
+    }
 };

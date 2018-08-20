@@ -21,7 +21,7 @@ class Solution {
       }
       if (pos == len) {
         break;
-	  }
+      }
     }
 
     string result;

@@ -10,10 +10,10 @@ class Solution {
       const int remain = target - nums[i];
       if (pos.find(remain) != pos.end()) {
         return {pos[remain], i};
-	  } else {
+      } else {
         pos[nums[i]] = i;
-	  }
+      }
     }
-	return {};
+    return {};
   }
 };

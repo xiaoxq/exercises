@@ -11,7 +11,7 @@ class Solution {
       const int next_result = result * 10 + x % 10;
       if (next_result / 10 != result) {
         return 0;
-	  }
+      }
       result = next_result;
       x /= 10;
     }
