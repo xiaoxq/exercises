@@ -9,4 +9,6 @@ VOLUME ${CWD}
 WORKDIR ${CWD}
 
 # Required tools and libs.
-RUN apt-get update -y && apt-get install -y git nvidia-cuda-toolkit vim
+# TODO(xiaoxq): Merge layers when they become stable.
+RUN apt-get update -y && apt-get install -y git vim
+#RUN apt-get install -y nvidia-cuda-toolkit
