@@ -2,4 +2,4 @@
 
 cd $(dirname $0)
 
-nvcc -o 0_main 0_hello-cuda.cu
+nvcc -o main_0 0_hello-cuda.cu

@@ -1,7 +1,6 @@
-#include <iostream>
-
 #include <cuda.h>
 #include <cuda_runtime.h>
+#include <iostream>
 
 // Kernel function to add two variables, parameters are passed by reference
 __global__
@@ -22,7 +21,7 @@ int main() {
   cudaMemcpy(d_b, &h_b, sizeof(int), cudaMemcpyHostToDevice);
 
   // Calling kernel with one thread and one block with parameters passed by reference
-  gpuAdd<<<1, 1>>>(d_a, d_b, d_c);
+  gpuAdd <<<1, 1>>>(d_a, d_b, d_c);
   // Coping result from device memory to host
   cudaMemcpy(&h_c, d_c, sizeof(int), cudaMemcpyDeviceToHost);
   std::cout << "Passing Parameter by Reference Output: "
