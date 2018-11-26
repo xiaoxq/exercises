@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-// TODO(xiaoxq): Fix link issue.
-
 int main(int argc, char** argv) {
   std::string image_path = "dog.png";
 
