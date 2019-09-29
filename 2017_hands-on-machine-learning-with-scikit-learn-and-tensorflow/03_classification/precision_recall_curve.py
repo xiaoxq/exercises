@@ -17,6 +17,7 @@ def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
     plt.legend(loc="upper left")
     plt.ylim([0, 1])
 
+
 if __name__ == '__main__':
     train_data, train_label, _, _ = load_data.split_data()
     train_label_5 = (train_label == 5)

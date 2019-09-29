@@ -10,10 +10,11 @@ def generator():
         yield x
         x += 1
 
+
 # Create an example containing floats
 int_list = tf.train.Int64List(value=[0, 1, 2, 3])
 feat = tf.train.Feature(int64_list=int_list)
-container = tf.train.Features(feature={'feat' : feat})
+container = tf.train.Features(feature={'feat': feat})
 example = tf.train.Example(features=container)
 
 # Write the example to a GZIP file
@@ -27,6 +28,7 @@ def parse_func(buff):
     features = {'feat': tf.FixedLenFeature(shape=[4], dtype=tf.int64)}
     tensor_dict = tf.parse_single_example(buff, features)
     return tensor_dict['feat']
+
 
 # Create a dataset from TFRecords
 dset1 = tf.data.TFRecordDataset('ex.tfrecord', 'GZIP')

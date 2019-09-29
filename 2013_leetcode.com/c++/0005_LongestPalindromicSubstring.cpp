@@ -4,8 +4,8 @@ using namespace std;
 class Solution {
  public:
   string longestPalindrome(string s) {
-   int longest = 0, start = 0;
-   for (int center = 0; center < s.length() - longest / 2; ++center ) {
+    int longest = 0, start = 0;
+    for (int center = 0; center < s.length() - longest / 2; ++center) {
       const int current = max(
           // aba, centerPos point at b
           getPalindromeLen(s, center - 1, center + 1),
@@ -26,6 +26,6 @@ class Solution {
       --left;
       ++right;
     }
-    return right-left-1;
+    return right - left - 1;
   }
 };

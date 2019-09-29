@@ -4,7 +4,7 @@
 
 void RunOnCPU(const cv::Mat& img) {
   // Get initial time in miliseconds
-  const int64 work_begin = cv::getTickCount(); 
+  const int64 work_begin = cv::getTickCount();
 
   cv::Mat result_host1, result_host2, result_host3, result_host4, result_host5;
 
@@ -51,7 +51,7 @@ void RunOnGPU(const cv::Mat& img) {
   std::cout << "FPS: " << work_fps << std::endl;
 }
 
-int main (int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
   cv::Mat img = cv::imread("images/cameraman.tif", 0);
   RunOnCPU(img);
   RunOnGPU(img);

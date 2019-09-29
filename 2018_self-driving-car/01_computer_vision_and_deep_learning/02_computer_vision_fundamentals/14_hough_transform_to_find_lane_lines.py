@@ -12,7 +12,7 @@ img_file = os.path.join(os.path.dirname(__file__), 'exit-ramp.jpg')
 image = mpimg.imread(img_file)
 print('This image is:', type(image), 'with dimensions:', image.shape)
 
-# Define a triangle region of interest (Note: if you run this code, 
+# Define a triangle region of interest (Note: if you run this code,
 # Keep in mind the origin (x=0, y=0) is in the upper left in image processing
 # you'll find these are not sensible values!!
 # But you'll get a chance to play with them soon in a quiz ;)
@@ -68,7 +68,7 @@ for line in lines:
         cv2.line(line_image, (x1, y1), (x2, y2), (255, 0, 0), 10)
 
 # Create a "color" binary image to combine with line image
-color_edges = np.dstack((edges, edges, edges)) 
+color_edges = np.dstack((edges, edges, edges))
 # Draw the lines on the edge image
 combo = cv2.addWeighted(color_edges, 0.8, line_image, 1, 0)
 plt.imshow(combo)

@@ -22,7 +22,7 @@ if __name__ == '__main__':
     y_predict = ridge_reg.predict(X_sorted)
     plt.subplot(121)
     plt.plot(X, y, "b.")
-    plt.plot(X_sorted[:,0], y_predict, "r-")
+    plt.plot(X_sorted[:, 0], y_predict, "r-")
 
     # Version 2.
     sgd_reg = SGDRegressor(penalty="l2")
@@ -30,6 +30,6 @@ if __name__ == '__main__':
     y_predict = sgd_reg.predict(X_sorted)
     plt.subplot(122)
     plt.plot(X, y, "b.")
-    plt.plot(X_sorted[:,0], y_predict, "r-")
+    plt.plot(X_sorted[:, 0], y_predict, "r-")
 
     plt.show()

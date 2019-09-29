@@ -23,7 +23,7 @@ loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
 learning_rate = 0.01
 num_epochs = 25
 batch_size = 100
-num_batches = int(dataset.train.num_examples/batch_size)
+num_batches = int(dataset.train.num_examples / batch_size)
 optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
 
 # Initialize variables
@@ -35,7 +35,7 @@ with tf.Session() as sess:
     for epoch in range(num_epochs):
         for batch in range(num_batches):
             image_batch, label_batch = dataset.train.next_batch(batch_size)
-            _, lossVal = sess.run([optimizer, loss],feed_dict={
+            _, lossVal = sess.run([optimizer, loss], feed_dict={
                 image_holder: image_batch, label_holder: label_batch})
 
     # Display the final loss

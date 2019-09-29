@@ -9,8 +9,8 @@ class Solution {
 
  private:
   // [left, right)
-  int searchRotated(const vector<int>& nums, const int target,
-                    int left, int right) {
+  int searchRotated(const vector<int>& nums, const int target, int left,
+                    int right) {
     while (left + 1 < right) {
       const int mid = (left + right) / 2;
       if (nums[left] < nums[mid]) {
@@ -36,8 +36,8 @@ class Solution {
     return -1;
   }
 
-  int searchOrdered(const vector<int>& nums, const int target,
-                    int left, int right) {
+  int searchOrdered(const vector<int>& nums, const int target, int left,
+                    int right) {
     if (target < nums[left] || target > nums[right - 1]) {
       return -1;
     }

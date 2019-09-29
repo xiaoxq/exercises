@@ -19,77 +19,74 @@ const Element INVALID_ELEM = INT_MAX;
 #define NULL 0
 #endif
 
-struct Block
-{
-	Block(Element data, Block* next)
-	{
-		this->data = data;
-		this->next = next;
-		this->min = this;
-	}
-	Element data;
-	Block* next;
-	// point to the minimum block
-	Block* min;
+struct Block {
+  Block(Element data, Block* next) {
+    this->data = data;
+    this->next = next;
+    this->min = this;
+  }
+  Element data;
+  Block* next;
+  // point to the minimum block
+  Block* min;
 };
 
-class Stack
-{
-private:
-	Block* mTop;
-public:
-	Stack()
-	{
-		mTop = NULL;
-	}
+class Stack {
+ private:
+  Block* mTop;
 
-	void push(Element data)
-	{
-		Block* temp = new Block(data, mTop);
-		if(mTop!=NULL && data > mTop->min->data)
-			temp->min = mTop->min;
-		mTop = temp;
-	}
+ public:
+  Stack() { mTop = NULL; }
 
-	void pop()
-	{
-		if(mTop!=NULL)
-			mTop = mTop->next;
-	}
+  void push(Element data) {
+    Block* temp = new Block(data, mTop);
+    if (mTop != NULL && data > mTop->min->data) temp->min = mTop->min;
+    mTop = temp;
+  }
 
-	Element min()
-	{
-		if(mTop!=NULL)
-			return mTop->min->data;
-		return INVALID_ELEM;
-	}
+  void pop() {
+    if (mTop != NULL) mTop = mTop->next;
+  }
 
-	// just for debugging
-	void print()
-	{
-		cout << "[min=" << this->min() << "]";
-		for( Block* i=mTop; i!=NULL; i=i->next )
-			cout << i->data << " -> ";
-		cout << "NULL" << endl;
-	}
+  Element min() {
+    if (mTop != NULL) return mTop->min->data;
+    return INVALID_ELEM;
+  }
+
+  // just for debugging
+  void print() {
+    cout << "[min=" << this->min() << "]";
+    for (Block* i = mTop; i != NULL; i = i->next) cout << i->data << " -> ";
+    cout << "NULL" << endl;
+  }
 };
 
 ///////////////// TEST /////////////////
-int main()
-{
-	Stack s;
-	s.push(3); s.print();
-	s.push(2); s.print();
-	s.push(1); s.print();
-	s.push(2); s.print();
-	s.push(3); s.print();
-	s.push(3); s.print();
-	s.pop(); s.print();
-	s.pop(); s.print();
-	s.pop(); s.print();
-	s.pop(); s.print();
-	s.pop(); s.print();
-	s.pop(); s.print();
-	return 0;
+int main() {
+  Stack s;
+  s.push(3);
+  s.print();
+  s.push(2);
+  s.print();
+  s.push(1);
+  s.print();
+  s.push(2);
+  s.print();
+  s.push(3);
+  s.print();
+  s.push(3);
+  s.print();
+  s.pop();
+  s.print();
+  s.pop();
+  s.print();
+  s.pop();
+  s.print();
+  s.pop();
+  s.print();
+  s.pop();
+  s.print();
+  s.pop();
+  s.print();
+  return 0;
 }
-

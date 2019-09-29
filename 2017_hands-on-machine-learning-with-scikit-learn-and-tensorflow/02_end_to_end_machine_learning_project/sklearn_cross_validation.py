@@ -32,5 +32,6 @@ def main():
 
     display_scores(tree_rmse_scores)
 
+
 if __name__ == '__main__':
     main()

@@ -14,90 +14,77 @@ typedef int Element;
 
 const int StackCapacity = 3;
 
-struct StackNode
-{
-	StackNode( int capacity, StackNode* next )
-	{
-		m_capacity = capacity;
-		m_storage = new Element[capacity];
-		this->next = next;
-		m_write_pos = 0;
-	}
+struct StackNode {
+  StackNode(int capacity, StackNode* next) {
+    m_capacity = capacity;
+    m_storage = new Element[capacity];
+    this->next = next;
+    m_write_pos = 0;
+  }
 
-	~StackNode() { delete[] m_storage; }
-	bool isEmpty() { return (m_write_pos==m_capacity); }
-	bool isFull() { return (m_write_pos==0); }
-	void push( Element e ) { m_storage[m_write_pos++] = e; }
-	void pop() { --m_write_pos; }
+  ~StackNode() { delete[] m_storage; }
+  bool isEmpty() { return (m_write_pos == m_capacity); }
+  bool isFull() { return (m_write_pos == 0); }
+  void push(Element e) { m_storage[m_write_pos++] = e; }
+  void pop() { --m_write_pos; }
 
-	int m_capacity;
-	Element* m_storage;
-	int m_write_pos;
+  int m_capacity;
+  Element* m_storage;
+  int m_write_pos;
 
-	StackNode* next;
+  StackNode* next;
 };
 
-class SetOfStacks
-{
-private:
-	StackNode* mStackHead;
-	int mStackNodeNum;
-public:
-	SetOfStacks()
-	{
-		mStackHead = new StackNode(StackCapacity, NULL);
-		mStackNodeNum = 1;
-	}
+class SetOfStacks {
+ private:
+  StackNode* mStackHead;
+  int mStackNodeNum;
 
-	void push( Element e )
-	{
-		if( mStackHead->isFull() )
-		{
-			StackNode* newHead = new StackNode(StackCapacity, mStackHead);
-			mStackHead = newHead;
-			++mStackNodeNum;
-		}
-		mStackHead->push(e);
-	}
+ public:
+  SetOfStacks() {
+    mStackHead = new StackNode(StackCapacity, NULL);
+    mStackNodeNum = 1;
+  }
 
-	void pop()
-	{
-		if(!mStackHead->isEmpty())
-			mStackHead->pop();
-		if(mStackHead->isEmpty() && mStackHead->next!=NULL)
-		{
-			StackNode* newHead = mStackHead->next;
-			delete mStackHead;
-			mStackHead = newHead;
-			--mStackNodeNum;
-		}
-	}
+  void push(Element e) {
+    if (mStackHead->isFull()) {
+      StackNode* newHead = new StackNode(StackCapacity, mStackHead);
+      mStackHead = newHead;
+      ++mStackNodeNum;
+    }
+    mStackHead->push(e);
+  }
 
-	void popAt( int index )
-	{
-		int reverseIndex = mStackNodeNum - 1 - index;
+  void pop() {
+    if (!mStackHead->isEmpty()) mStackHead->pop();
+    if (mStackHead->isEmpty() && mStackHead->next != NULL) {
+      StackNode* newHead = mStackHead->next;
+      delete mStackHead;
+      mStackHead = newHead;
+      --mStackNodeNum;
+    }
+  }
 
-		StackNode* current = mStackHead;
-		StackNode* previous = NULL;
-		while( reverseIndex-- )
-		{
-			previous = current;
-			current = current->next;
-		}
+  void popAt(int index) {
+    int reverseIndex = mStackNodeNum - 1 - index;
 
-		if(!current->isEmpty())
-			current->pop();
+    StackNode* current = mStackHead;
+    StackNode* previous = NULL;
+    while (reverseIndex--) {
+      previous = current;
+      current = current->next;
+    }
 
-		if(current->isEmpty())
-		{
-			// it's the head
-			if(previous==NULL)
-				mStackHead = current->next;
-			// it's in middle
-			else
-				previous->next = current->next;
+    if (!current->isEmpty()) current->pop();
 
-			delete current;
-		}
-	}
+    if (current->isEmpty()) {
+      // it's the head
+      if (previous == NULL) mStackHead = current->next;
+      // it's in middle
+      else
+        previous->next = current->next;
+
+      delete current;
+    }
+  }
 };

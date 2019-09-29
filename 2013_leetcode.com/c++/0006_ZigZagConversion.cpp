@@ -9,7 +9,7 @@ class Solution {
     const int len = s.length();
 
     int pos = 0;
-    for (int col = 0; ; ++col) {
+    for (int col = 0;; ++col) {
       if (col % 2 == 0) {
         for (int i = 0; i < numRows && pos < len; ++i) {
           rows[i].append(1, s[pos++]);

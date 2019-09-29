@@ -7,7 +7,7 @@ class Solution {
   vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
     sort(candidates.begin(), candidates.end());
 
-    vector<vector<int> > result;
+    vector<vector<int>> result;
     vector<int> prefix;
     findCombinations(candidates, 0, target, &result, &prefix);
     return result;
@@ -15,10 +15,10 @@ class Solution {
 
  private:
   void findCombinations(const vector<int>& candidates, const int index,
-                        const int target,
-                        vector<vector<int>>* result, vector<int>* prefix) {
+                        const int target, vector<vector<int>>* result,
+                        vector<int>* prefix) {
     if (target == 0) {
-      result->push_back(*prefix );
+      result->push_back(*prefix);
       return;
     }
 
@@ -28,10 +28,11 @@ class Solution {
     }
     // use candidates[index] once
     prefix->push_back(candidates[index]);
-    findCombinations(candidates, index, target-candidates[index], result, prefix);
+    findCombinations(candidates, index, target - candidates[index], result,
+                     prefix);
     prefix->pop_back();
 
     // no use candidates[index]
-    findCombinations(candidates, index+1, target, result, prefix);
+    findCombinations(candidates, index + 1, target, result, prefix);
   }
 };

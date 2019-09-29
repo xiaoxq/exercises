@@ -32,5 +32,6 @@ def main():
     tree_rmse = np.sqrt(tree_mse)
     print('root_mean_squared_error = {}'.format(tree_rmse))
 
+
 if __name__ == '__main__':
     main()

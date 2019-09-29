@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     plt.subplot(121)
     plt.plot(X, y, "b.")
-    plt.plot(X_sorted[:,0], y_predict, "r-")
+    plt.plot(X_sorted[:, 0], y_predict, "r-")
 
     # Pipeline.
     poly_reg = Pipeline([

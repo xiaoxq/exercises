@@ -32,5 +32,6 @@ def main():
     lin_rmse = np.sqrt(lin_mse)
     print('root_mean_squared_error = {}'.format(lin_rmse))
 
+
 if __name__ == '__main__':
     main()

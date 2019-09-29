@@ -10,8 +10,8 @@ class Solution {
     vector<int> pos;
     for (int i = 0; i < s.length(); ++i) {
       if (s[i] == '(') {
-         pos.push_back(i);
-         continue;
+        pos.push_back(i);
+        continue;
       }
 
       if (!pos.empty() && s[pos.back()] == '(') {

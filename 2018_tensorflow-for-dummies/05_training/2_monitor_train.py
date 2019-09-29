@@ -17,6 +17,7 @@ class CustomHook(tf.train.SessionRunHook):
     def end(self, session):
         print('The session is about to end!')
 
+
 # Define a trainable variable
 x_var = tf.Variable(0., name='x_result')
 
@@ -40,7 +41,7 @@ summary_op = tf.summary.scalar('x', x_var)
 # Create hooks
 custom_hook = CustomHook()
 checkpoint_hook = tf.train.CheckpointSaverHook(checkpoint_dir='ckpt_dir',
-    checkpoint_basename='output', save_steps=10)
+                                               checkpoint_basename='output', save_steps=10)
 summary_hook = tf.train.SummarySaverHook(save_steps=10, output_dir='log', summary_op=summary_op)
 hooks = [custom_hook, checkpoint_hook, summary_hook]
 
@@ -49,4 +50,3 @@ with tf.train.MonitoredSession(hooks=hooks) as sess:
     sess.run(init)
     for epoch in range(num_epochs):
         sess.run(optimizer)
-

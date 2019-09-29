@@ -15,7 +15,7 @@ class Solution {
     // and use setRow0, setCol0 to record itself
     bool setRow0 = false, setCol0 = false;
     for (int i = 0; i < m; ++i) {
-      if( matrix[i][0] == 0 ) {
+      if (matrix[i][0] == 0) {
         setCol0 = true;
         break;
       }

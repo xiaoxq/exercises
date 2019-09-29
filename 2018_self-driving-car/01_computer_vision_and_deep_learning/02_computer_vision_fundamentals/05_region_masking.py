@@ -15,10 +15,10 @@ print('This image is:', type(image), 'with dimensions:', image.shape)
 ysize = image.shape[0]
 xsize = image.shape[1]
 
-# Define a triangle region of interest 
+# Define a triangle region of interest
 # Keep in mind the origin (x=0, y=0) is in the upper left in image processing
 # Note: if you run this code, you'll find these are not sensible values!!
-# But you'll get a chance to play with them soon in a quiz 
+# But you'll get a chance to play with them soon in a quiz
 left_bottom = [0, 539]
 right_bottom = [900, 300]
 apex = [400, 0]

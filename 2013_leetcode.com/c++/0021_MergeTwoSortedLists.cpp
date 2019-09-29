@@ -10,7 +10,7 @@ class Solution {
   ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
     ListNode *head = nullptr, *tail = nullptr;
     while (l1 != nullptr && l2 != nullptr) {
-      ListNode *next;
+      ListNode* next;
       if (l1->val < l2->val) {
         next = l1;
         l1 = l1->next;

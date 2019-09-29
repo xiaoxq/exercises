@@ -13,7 +13,7 @@ class Solution {
     sort(nums.begin(), nums.end());
     for (int index1 = 0; index1 + 3 < nums.size(); ++index1) {
       while (index1 > 0 && index1 + 3 < nums.size() &&
-             nums[index1] == nums[index1 -1]) {
+             nums[index1] == nums[index1 - 1]) {
         ++index1;
       }
       for (int index2 = index1 + 1; index2 + 2 < nums.size(); ++index2) {
@@ -31,11 +31,11 @@ class Solution {
             break;
           }
 
-          const int sum = nums[index1] + nums[index2] +
-                          nums[index3] + nums[index4];
+          const int sum =
+              nums[index1] + nums[index2] + nums[index3] + nums[index4];
           if (sum == target) {
-            result.push_back({nums[index1], nums[index2],
-                              nums[index3], nums[index4]});
+            result.push_back(
+                {nums[index1], nums[index2], nums[index3], nums[index4]});
             ++index3;
             --index4;
           } else if (sum > target) {

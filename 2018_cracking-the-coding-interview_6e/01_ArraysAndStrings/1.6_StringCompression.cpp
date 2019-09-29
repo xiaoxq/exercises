@@ -27,14 +27,12 @@ string StringCompression(const string& str) {
 #include <vector>
 
 int main() {
-	const vector<string> test_cases = {
-      "aabcccccaaa"
-	};
+  const vector<string> test_cases = {"aabcccccaaa"};
 
-	for (const string& test_case : test_cases) {
-		cout << "StringCompression(" << test_case << ") = "
-         << StringCompression(test_case) << endl;
-	}
+  for (const string& test_case : test_cases) {
+    cout << "StringCompression(" << test_case
+         << ") = " << StringCompression(test_case) << endl;
+  }
 
-	return 0;
+  return 0;
 }

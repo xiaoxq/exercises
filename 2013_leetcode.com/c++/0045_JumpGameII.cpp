@@ -9,7 +9,7 @@ class Solution {
       return 0;
     }
     // reach lBound in result jumps, reach rBound in result+1 jumps
-    int result=1, lBound=1, rBound=nums[0];
+    int result = 1, lBound = 1, rBound = nums[0];
     while (rBound + 1 < nums.size()) {
       ++result;
 

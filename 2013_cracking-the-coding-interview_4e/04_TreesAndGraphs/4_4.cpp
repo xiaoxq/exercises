@@ -14,43 +14,34 @@ using namespace std;
 #define NULL 0
 #endif
 
-struct Node
-{
-	Node* left;
-	Node* right;
+struct Node {
+  Node* left;
+  Node* right;
 };
 
-void levelToList( Node* root, vector< list<Node*> >& result )
-{
-	if( root==NULL )
-		return;
+void levelToList(Node* root, vector<list<Node*> >& result) {
+  if (root == NULL) return;
 
-	queue<Node*> visitingQueue;
-	visitingQueue.push(root);
-	// NULL is like an EOL
-	visitingQueue.push(NULL);
+  queue<Node*> visitingQueue;
+  visitingQueue.push(root);
+  // NULL is like an EOL
+  visitingQueue.push(NULL);
 
-	result.push_back( list<Node*>() );
-	while(true)
-	{
-		Node* current = visitingQueue.front(); visitingQueue.pop();
+  result.push_back(list<Node*>());
+  while (true) {
+    Node* current = visitingQueue.front();
+    visitingQueue.pop();
 
-		if( current!=NULL )
-		{
-			result.rbegin()->push_back( current );
-			if(current->left!=NULL)
-				visitingQueue.push( current->left );
-			if(current->right!=NULL)
-				visitingQueue.push( current->right );
-		}
-		else
-		{
-			if(visitingQueue.empty())
-				break;
+    if (current != NULL) {
+      result.rbegin()->push_back(current);
+      if (current->left != NULL) visitingQueue.push(current->left);
+      if (current->right != NULL) visitingQueue.push(current->right);
+    } else {
+      if (visitingQueue.empty()) break;
 
-			// add another EOL and container
-			visitingQueue.push(NULL);
-			result.push_back( list<Node*>() );
-		}
-	}
+      // add another EOL and container
+      visitingQueue.push(NULL);
+      result.push_back(list<Node*>());
+    }
+  }
 }

@@ -14,9 +14,9 @@ class Solution {
     return result;
   }
 
-private:
+ private:
   int findKthInRange(const vector<int>& nums1, const vector<int>& nums2,
-                     int k ) {
+                     int k) {
     int leftA = 0, rightA = nums1.size();
     int leftB = 0, rightB = nums2.size();
 
@@ -40,7 +40,7 @@ private:
         // section 3: B[leftB,middleB] // section 4: B(middleB, rightB)
 
         // throw section 2
-        if (middleA - leftA + 1 + middleB - leftB >= k ) {
+        if (middleA - leftA + 1 + middleB - leftB >= k) {
           rightA = middleA;
         } else {
           // throw section 3

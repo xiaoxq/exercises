@@ -4,17 +4,18 @@ using namespace std;
 class Solution {
  public:
   vector<vector<int>> combine(int n, int k) {
-    vector<vector<int> > result;
+    vector<vector<int>> result;
     vector<int> prefix;
     fillRemain(1, n, k, result, prefix);
     return result;
   }
 
  private:
-  void fillRemain(int start, int end, int k, vector<vector<int>>& result, vector<int>& prefix) {
+  void fillRemain(int start, int end, int k, vector<vector<int>>& result,
+                  vector<int>& prefix) {
     if (k == 0) {
       if (!prefix.empty()) {
-        result.push_back( prefix );
+        result.push_back(prefix);
       }
       return;
     }

@@ -7,7 +7,7 @@ class Solution {
     static const int kBoardSize = 9;
     for (int row = 0; row < kBoardSize; ++row) {
       for (int col = 0; col < kBoardSize; ++col) {
-        if( board[row][col]=='.' ) {
+        if (board[row][col] == '.') {
           continue;
         }
 

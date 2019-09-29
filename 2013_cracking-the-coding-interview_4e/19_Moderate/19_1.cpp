@@ -5,16 +5,14 @@
  *      Author: beet
  */
 
-void swap1( int& a, int& b )
-{
-	a += b; // may overflow
-	b = a-b;
-	a = a-b;
+void swap1(int& a, int& b) {
+  a += b;  // may overflow
+  b = a - b;
+  a = a - b;
 }
 
-void swap2( int& a, int& b )
-{
-	a ^= b;
-	b = a^b;
-	a = a^b;
+void swap2(int& a, int& b) {
+  a ^= b;
+  b = a ^ b;
+  a = a ^ b;
 }

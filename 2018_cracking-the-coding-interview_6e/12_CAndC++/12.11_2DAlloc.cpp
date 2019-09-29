@@ -13,8 +13,8 @@ T** My2DAlloc(const size_t rows, const size_t cols) {
 
 template <class T>
 void My2DDealloc(T** arr, const size_t rows, const size_t cols) {
-  delete [] arr[0];
-  delete [] arr;
+  delete[] arr[0];
+  delete[] arr;
 }
 
 ///////////////// TEST /////////////////

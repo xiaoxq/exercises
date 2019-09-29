@@ -3,7 +3,7 @@ class Solution {
   double pow(double x, int n) {
     unsigned int unsignedN = n;
     if (n < 0) {
-      unsignedN = ~(unsignedN-1);
+      unsignedN = ~(unsignedN - 1);
     }
 
     double result = 1.0;

@@ -32,10 +32,8 @@ class Solution {
   inline int ijToRect(int i, int j) { return i / 3 * 3 + j / 3; }
 
   bool fillCells(const vector<vector<int>>& to_fill, const int index,
-                 vector<vector<char>>* board,
-                 vector<vector<bool>>* row,
-                 vector<vector<bool>>* col,
-                 vector<vector<bool>>* rect) {
+                 vector<vector<char>>* board, vector<vector<bool>>* row,
+                 vector<vector<bool>>* col, vector<vector<bool>>* rect) {
     // Fully filled.
     if (to_fill.size() == index) {
       return true;

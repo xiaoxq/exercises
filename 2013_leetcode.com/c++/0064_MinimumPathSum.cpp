@@ -17,11 +17,11 @@ class Solution {
       for (int j = n - 1; j >= 0; --j) {
         // find mini way
         if (i < m - 1 && j < n - 1) {
-          pathNum[i][j] += min(pathNum[i+1][j], pathNum[i][j+1]);
-        } else if( i<m-1 ) {
-          pathNum[i][j] += pathNum[i+1][j];
-        } else if( j<n-1 ) {
-          pathNum[i][j] += pathNum[i][j+1];
+          pathNum[i][j] += min(pathNum[i + 1][j], pathNum[i][j + 1]);
+        } else if (i < m - 1) {
+          pathNum[i][j] += pathNum[i + 1][j];
+        } else if (j < n - 1) {
+          pathNum[i][j] += pathNum[i][j + 1];
         }
       }
     }

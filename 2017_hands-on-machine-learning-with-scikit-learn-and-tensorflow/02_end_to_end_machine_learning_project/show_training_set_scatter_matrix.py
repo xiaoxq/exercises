@@ -19,5 +19,6 @@ def main():
     pandas.plotting.scatter_matrix(training_set[cols], figsize=(12, 8))
     plt.show()
 
+
 if __name__ == '__main__':
     main()

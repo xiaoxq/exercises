@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-int main (int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
   cv::Mat h_img1 = cv::imread("images/cameraman.tif");
   cv::Mat h_img2 = cv::imread("images/circles.png");
   // Create Memory for storing Images on device

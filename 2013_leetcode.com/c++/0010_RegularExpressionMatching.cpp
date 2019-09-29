@@ -3,13 +3,11 @@ using namespace std;
 
 class Solution {
  public:
-  bool isMatch(string s, string p) {
-    return isMatch(s, 0, p, 0);
-  }
+  bool isMatch(string s, string p) { return isMatch(s, 0, p, 0); }
 
  private:
-  bool isMatch(const string& s, size_t s_index,
-               const string& p, size_t p_index) {
+  bool isMatch(const string& s, size_t s_index, const string& p,
+               size_t p_index) {
     if (p.length() == p_index) {
       return s.length() == s_index;
     }

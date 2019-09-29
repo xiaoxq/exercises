@@ -15,8 +15,8 @@ class Solution {
     vector<vector<int>> onesAtLeft(m, vector<int>(n, 0));
     for (int i = 0; i < m; ++i) {
       for (int j = 0; j < n; ++j) {
-        onesAtLeft[i][j] = matrix[i][j] == '0' ? 0 :
-            (j > 0 ? 1 + onesAtLeft[i][j - 1] : 1);
+        onesAtLeft[i][j] =
+            matrix[i][j] == '0' ? 0 : (j > 0 ? 1 + onesAtLeft[i][j - 1] : 1);
       }
     }
 

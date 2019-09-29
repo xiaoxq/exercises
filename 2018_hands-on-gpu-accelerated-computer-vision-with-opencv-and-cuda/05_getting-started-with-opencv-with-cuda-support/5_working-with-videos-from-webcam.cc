@@ -11,11 +11,11 @@ int main(int argc, char* argv[]) {
     return -1;
   }
   // Get the frames rate of the video from webcam
-  double frames_per_second = cap.get(cv::CAP_PROP_FPS); 
+  double frames_per_second = cap.get(cv::CAP_PROP_FPS);
   std::cout << "Frames per seconds: " << frames_per_second << std::endl;
   std::cout << "Press Q to Quit" << std::endl;
   cv::String win_name = "Webcam Video";
-  cv::namedWindow(win_name); //create a window
+  cv::namedWindow(win_name);  // create a window
 
   cv::Mat frame;
   while (cap.read(frame)) {

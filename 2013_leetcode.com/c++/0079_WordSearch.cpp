@@ -12,8 +12,8 @@ class Solution {
     int m = board.size(), n = board[0].size();
 
     for (int i = 0; i < m; ++i) {
-      for ( int j = 0; j < n; ++j) {
-        if (startDeepSearch(board,i,j,word,0)) {
+      for (int j = 0; j < n; ++j) {
+        if (startDeepSearch(board, i, j, word, 0)) {
           return true;
         }
       }
@@ -22,7 +22,7 @@ class Solution {
   }
 
  private:
-  bool startDeepSearch(vector<vector<char> > &board, int i, int j,
+  bool startDeepSearch(vector<vector<char>>& board, int i, int j,
                        const string& word, int pos) {
     if (pos == word.length()) {
       return true;

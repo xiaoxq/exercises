@@ -13,8 +13,8 @@ class Solution {
   }
 
  private:
-  void getSubsets(const vector<int>& nums, int index,
-                 vector<int>* prefix, vector<vector<int>>* result) {
+  void getSubsets(const vector<int>& nums, int index, vector<int>* prefix,
+                  vector<vector<int>>* result) {
     if (index == nums.size()) {
       result->push_back(*prefix);
       return;

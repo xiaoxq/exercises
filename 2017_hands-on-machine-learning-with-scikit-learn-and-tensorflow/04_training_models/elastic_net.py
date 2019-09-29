@@ -22,7 +22,7 @@ if __name__ == '__main__':
     y_predict = lasso_reg.predict(X_sorted)
     plt.subplot(121)
     plt.plot(X, y, "b.")
-    plt.plot(X_sorted[:,0], y_predict, "r-")
+    plt.plot(X_sorted[:, 0], y_predict, "r-")
 
     # Elastic net.
     elastic_net = ElasticNet(alpha=0.1, l1_ratio=0.5)
@@ -30,6 +30,6 @@ if __name__ == '__main__':
     y_predict = elastic_net.predict(X_sorted)
     plt.subplot(122)
     plt.plot(X, y, "b.")
-    plt.plot(X_sorted[:,0], y_predict, "r-")
+    plt.plot(X_sorted[:, 0], y_predict, "r-")
 
     plt.show()

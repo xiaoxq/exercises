@@ -4,7 +4,7 @@ using namespace std;
 class Solution {
  public:
   vector<vector<int>> generateMatrix(int n) {
-    vector<vector<int> > result(n, vector<int>(n));
+    vector<vector<int>> result(n, vector<int>(n));
 
     int leftBound = 0, upperBound = 0, rightBound = n - 1, lowerBound = n - 1;
 

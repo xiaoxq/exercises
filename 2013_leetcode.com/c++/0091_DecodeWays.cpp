@@ -15,8 +15,7 @@ class Solution {
         cur = pre;
       }
       // Take two chars.
-      if (i > 0 && (
-          s[i - 1] == '1' || (s[i - 1] == '2' && s[i] <= '6'))) {
+      if (i > 0 && (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] <= '6'))) {
         cur += pre_pre;
       }
       pre_pre = pre;

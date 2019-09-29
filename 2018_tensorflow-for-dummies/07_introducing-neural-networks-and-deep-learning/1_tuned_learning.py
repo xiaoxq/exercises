@@ -42,7 +42,7 @@ loss = tf.reduce_mean(
 learning_rate = 0.01
 num_epochs = 15
 batch_size = 100
-num_batches = int(dataset.train.num_examples/batch_size)
+num_batches = int(dataset.train.num_examples / batch_size)
 optimizer = tf.train.AdamOptimizer(learning_rate).minimize(loss)
 
 # Initialize variables

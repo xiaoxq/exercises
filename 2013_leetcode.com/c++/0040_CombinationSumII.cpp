@@ -37,6 +37,6 @@ class Solution {
            candidates[index + 1] == candidates[index]) {
       ++index;
     }
-    findCombinations(result, candidates, index+1, prefix, target);
+    findCombinations(result, candidates, index + 1, prefix, target);
   }
 };

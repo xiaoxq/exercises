@@ -24,8 +24,8 @@ class Solution {
 
  private:
   // Find the first target, or return right.
-  int searchLeft(const vector<int>& nums, const int target,
-                 int left, int right) {
+  int searchLeft(const vector<int>& nums, const int target, int left,
+                 int right) {
     while (left < right) {
       const int mid = (left + right) / 2;
       if (nums[mid] < target) {
@@ -38,8 +38,8 @@ class Solution {
   }
 
   // Find the last target, or return left - 1.
-  int searchRight(const vector<int>& nums, const int target,
-                  int left, int right) {
+  int searchRight(const vector<int>& nums, const int target, int left,
+                  int right) {
     while (left < right) {
       const int mid = (left + right) / 2;
       if (nums[mid] > target) {

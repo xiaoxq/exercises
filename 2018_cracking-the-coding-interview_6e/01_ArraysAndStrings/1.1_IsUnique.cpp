@@ -38,13 +38,7 @@ bool IsUnique(string str) {
 #include <vector>
 
 int main() {
-  const vector<string> test_cases = {
-       "",
-      "a",
-      "abcdef",
-      "abcdefa",
-      "aaaaaa"
-  };
+  const vector<string> test_cases = {"", "a", "abcdef", "abcdefa", "aaaaaa"};
 
   for (const string& test_case : test_cases) {
     const bool is_uniq = IsUnique(test_case);

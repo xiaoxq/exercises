@@ -24,6 +24,6 @@ thresholds = (image[:, :, 0] < rgb_threshold[0]) | \
 color_select = np.copy(image)
 color_select[thresholds] = [0, 0, 0]
 
-# Display the image                 
+# Display the image
 plt.imshow(color_select)
 plt.show()

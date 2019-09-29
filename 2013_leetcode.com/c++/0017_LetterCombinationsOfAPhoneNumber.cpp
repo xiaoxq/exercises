@@ -13,8 +13,8 @@ class Solution {
  private:
   void letterCombinations(const string& digits, const int index,
                           const string& prefix, vector<string>* result) {
-    static const string digit2char[10] =
-        {" ", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    static const string digit2char[10] = {" ",   "",    "abc",  "def", "ghi",
+                                          "jkl", "mno", "pqrs", "tuv", "wxyz"};
     if (index == digits.size()) {
       if (!prefix.empty()) {
         result->push_back(prefix);

@@ -32,18 +32,13 @@ bool IsPalindromePermutation(const string& str) {
 #include <vector>
 
 int main() {
-	const vector<string> test_cases = {
-      "",
-      "a",
-			"Tact Coa",
-			"Tact Coa o",
-			"Tact Coa b"
-	};
+  const vector<string> test_cases = {"", "a", "Tact Coa", "Tact Coa o",
+                                     "Tact Coa b"};
 
-	for (const string& test_case : test_cases) {
-		cout << "IsPalindromePermutation(" << test_case << ") = "
-         << IsPalindromePermutation(test_case) << endl;
-	}
+  for (const string& test_case : test_cases) {
+    cout << "IsPalindromePermutation(" << test_case
+         << ") = " << IsPalindromePermutation(test_case) << endl;
+  }
 
-	return 0;
+  return 0;
 }

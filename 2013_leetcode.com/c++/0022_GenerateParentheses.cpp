@@ -25,7 +25,7 @@ class Solution {
     }
     // close one
     if (close_remain > open_remain) {
-      generateParenthesis( prefix+")", open_remain, close_remain-1, result );
+      generateParenthesis(prefix + ")", open_remain, close_remain - 1, result);
     }
   }
 };

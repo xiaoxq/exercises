@@ -21,9 +21,8 @@ class Solution {
 
  private:
   void tryPlace(vector<vector<bool>>& board, int n, int curRow,
-                vector<vector<string>>& result,
-                vector<bool>& colMark, vector<bool>& upLeftMark,
-                vector<bool>& upRightMark) {
+                vector<vector<string>>& result, vector<bool>& colMark,
+                vector<bool>& upLeftMark, vector<bool>& upRightMark) {
     // reach the end, record
     if (curRow == n) {
       vector<string> solution;

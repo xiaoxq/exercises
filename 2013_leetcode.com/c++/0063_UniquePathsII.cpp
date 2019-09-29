@@ -30,7 +30,7 @@ class Solution {
           pathNum[i][j] += pathNum[i + 1][j];
         }
         if (j + 1 < n) {
-          pathNum[i][j] += pathNum[i][j+1];
+          pathNum[i][j] += pathNum[i][j + 1];
         }
       }
     }

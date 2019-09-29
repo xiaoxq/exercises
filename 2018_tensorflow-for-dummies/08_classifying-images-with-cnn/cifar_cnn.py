@@ -102,7 +102,7 @@ with tf.Session() as sess:
     sess.run(init)
     for epoch in range(num_epochs):
         for batch in range(num_batches):
-            batch_start = random.randint(0, batch_size*(num_batches-1)-1)
+            batch_start = random.randint(0, batch_size * (num_batches - 1) - 1)
             batch_end = batch_start + batch_size
             img_batch = train_data[batch_start:batch_end, :]
             lbl_batch = train_labels[batch_start:batch_end, :]

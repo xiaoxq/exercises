@@ -41,9 +41,8 @@ class Solution {
   }
 
  private:
-  void checkOut(const unordered_map<char, int>& requirements,
-                const string& s, int right,
-                unordered_map<char, int>* fulfilled, int* next_start,
+  void checkOut(const unordered_map<char, int>& requirements, const string& s,
+                int right, unordered_map<char, int>* fulfilled, int* next_start,
                 int* start, int* len) {
     for (int i = *next_start; i < s.length(); ++i) {
       if (requirements.find(s[i]) == requirements.end()) {

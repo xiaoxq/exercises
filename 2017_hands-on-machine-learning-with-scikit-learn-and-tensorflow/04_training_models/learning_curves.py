@@ -22,6 +22,7 @@ def plot_learning_curves(model, X, y):
     plt.plot(np.sqrt(train_errors), "r-+", linewidth=2, label="train")
     plt.plot(np.sqrt(val_errors), "b-", linewidth=3, label="val")
 
+
 if __name__ == '__main__':
     m = 100
     X = 6 * np.random.rand(m, 1) - 3

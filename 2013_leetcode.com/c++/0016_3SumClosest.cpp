@@ -11,8 +11,8 @@ class Solution {
     int closest = INT_MAX;
     for (int i = 0; i < nums.size() - 2; ++i) {
       if (i == 0 || nums[i] != nums[i - 1]) {
-        const int cur_closest = twoSumClosestDiff(
-            nums, i + 1, target - nums[i], closest);
+        const int cur_closest =
+            twoSumClosestDiff(nums, i + 1, target - nums[i], closest);
         if (abs(cur_closest) < abs(closest)) {
           closest = cur_closest;
         }

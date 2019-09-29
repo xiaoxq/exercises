@@ -6,7 +6,7 @@ class Solution {
   void sortColors(vector<int>& nums) {
     int writeRed = 0, writeBlue = nums.size() - 1;
     for (int r = 0; r <= writeBlue;) {
-      switch(nums[r]) {
+      switch (nums[r]) {
         case RED:
           swap(nums, writeRed, r);
           ++writeRed;
@@ -24,11 +24,7 @@ class Solution {
   }
 
  private:
-  enum Color {
-    RED = 0,
-    WHITE = 1,
-    BLUE = 2
-  };
+  enum Color { RED = 0, WHITE = 1, BLUE = 2 };
 
   inline void swap(vector<int>& nums, const int i, const int j) {
     if (nums[i] != nums[j]) {

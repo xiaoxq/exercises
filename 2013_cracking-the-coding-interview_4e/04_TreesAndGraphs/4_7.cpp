@@ -9,35 +9,26 @@
 #define NULL 0
 #endif
 
-struct Node
-{
-	Node* left;
-	Node* right;
-	int data;
+struct Node {
+  Node* left;
+  Node* right;
+  int data;
 };
 
-bool isMatch( Node* T1, Node* T2 )
-{
-	// T2 may be smaller
-	if(T2==NULL)
-		return true;
+bool isMatch(Node* T1, Node* T2) {
+  // T2 may be smaller
+  if (T2 == NULL) return true;
 
-	if(T1==NULL || T1->data!=T2->data)
-		return false;
+  if (T1 == NULL || T1->data != T2->data) return false;
 
-	// T1 and T2 are not NULL
-	return isMatch(T1->left,T2->left) && isMatch(T1->right,T2->right);
+  // T1 and T2 are not NULL
+  return isMatch(T1->left, T2->left) && isMatch(T1->right, T2->right);
 }
 
-bool isSubTree( Node* T1, Node* T2 )
-{
-	if( isMatch(T1,T2) )
-		return true;
+bool isSubTree(Node* T1, Node* T2) {
+  if (isMatch(T1, T2)) return true;
 
-	if( T1==NULL )
-		return false;
+  if (T1 == NULL) return false;
 
-	return isSubTree(T1->left,T2) || isSubTree(T1->right,T2);
+  return isSubTree(T1->left, T2) || isSubTree(T1->right, T2);
 }
-
-

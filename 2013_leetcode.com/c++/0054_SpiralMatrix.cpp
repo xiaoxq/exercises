@@ -9,16 +9,15 @@ class Solution {
       return result;
     }
     for (int left = 0, right = matrix[0].size(), up = 0, down = matrix.size();
-         left < right && up < down;
-         ++left, --right, ++up, --down) {
+         left < right && up < down; ++left, --right, ++up, --down) {
       spiralOrder(matrix, left, right, up, down, &result);
     }
     return result;
   }
 
  private:
-  void spiralOrder(const vector<vector<int>>& matrix,
-                   const int left, const int right, const int up, const int down,
+  void spiralOrder(const vector<vector<int>>& matrix, const int left,
+                   const int right, const int up, const int down,
                    vector<int>* result) {
     // m[up][left] ~ m[up][right-1]
     for (int i = left; i < right; ++i) {

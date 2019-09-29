@@ -29,11 +29,11 @@ def model_generator():
     H = keras.layers.Activation('relu')(H)
     H = keras.layers.Reshape(14 * 14 * nch)(H)
     H = keras.layers.convolutional.UpSampling2D(size=(2, 2))(H)
-    H = Convolution2D(3, 3, int(nch / 2), border_mode='same', 
+    H = Convolution2D(3, 3, int(nch / 2), border_mode='same',
                       init='glorot_uniform')(H)
     H = keras.layers.BatchNormalization(axis=1)(H)
     H = keras.layers.Activation('relu')(H)
-    H = Convolution2D(3, 3, int(nch / 4), border_mode='same', 
+    H = Convolution2D(3, 3, int(nch / 4), border_mode='same',
                       init='glorot_uniform')(H)
     H = keras.layers.BatchNormalization(axis=1)(H)
     H = keras.layers.Activation('relu')(H)

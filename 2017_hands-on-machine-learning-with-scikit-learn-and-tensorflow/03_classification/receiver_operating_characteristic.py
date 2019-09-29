@@ -16,6 +16,7 @@ def plot_roc_curve(fpr, tpr, label=None):
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
 
+
 if __name__ == '__main__':
     train_data, train_label, _, _ = load_data.split_data()
     train_label_5 = (train_label == 5)

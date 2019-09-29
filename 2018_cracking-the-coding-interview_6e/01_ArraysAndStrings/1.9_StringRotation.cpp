@@ -15,17 +15,12 @@ bool isRotation(const string& str1, const string& str2) {
 
 int main() {
   const vector<string> test_cases = {
-      "", "a",
-      "", "",
-      "abc", "abcd",
-      "abc", "abc",
-      "abc", "cab",
-      "abc", "bca",
+      "", "a", "", "", "abc", "abcd", "abc", "abc", "abc", "cab", "abc", "bca",
   };
 
   for (int i = 0; i < test_cases.size(); i += 2) {
-    cout << "isRotation(" << test_cases[i] << ", " << test_cases[i + 1] << ") = "
-         << isRotation(test_cases[i], test_cases[i + 1]) << endl;
+    cout << "isRotation(" << test_cases[i] << ", " << test_cases[i + 1]
+         << ") = " << isRotation(test_cases[i], test_cases[i + 1]) << endl;
   }
 
   return 0;

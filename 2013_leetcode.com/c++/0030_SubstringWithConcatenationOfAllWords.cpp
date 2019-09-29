@@ -33,8 +33,8 @@ class Solution {
 
  private:
   bool match(const string& s, const int index,
-             const unordered_map<string, int>& dict,
-             const int word_count, const int word_len) {
+             const unordered_map<string, int>& dict, const int word_count,
+             const int word_len) {
     unordered_map<string, int> local_dict = dict;
     for (int i = 0; i < word_count; ++i) {
       const string sub = s.substr(index + i * word_len, word_len);

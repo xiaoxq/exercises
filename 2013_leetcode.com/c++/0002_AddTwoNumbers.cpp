@@ -36,7 +36,7 @@ class Solution {
     }
 
     // the final carry
-    if(carry > 0) {
+    if (carry > 0) {
       tail->next = new ListNode(carry);
     }
 

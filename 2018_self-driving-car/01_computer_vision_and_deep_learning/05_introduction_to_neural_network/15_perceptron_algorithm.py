@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def perceptronStep(X, y, W, b, learn_rate = 0.01):
+def perceptronStep(X, y, W, b, learn_rate=0.01):
     # Update W and b.
     for i in range(len(y)):
         y_hat = 1 if np.matmul(X[i], W) + b >= 0 else 0
@@ -22,7 +22,7 @@ def perceptronStep(X, y, W, b, learn_rate = 0.01):
     return W, b
 
 
-def trainPerceptronAlgorithm(X, y, learn_rate = 0.01, num_epochs = 1000):
+def trainPerceptronAlgorithm(X, y, learn_rate=0.01, num_epochs=1000):
     W = np.random.rand(2, 1)
     b = np.random.rand()
     for _ in range(num_epochs):
@@ -38,7 +38,8 @@ def drawResult(X, y, W, b):
 
     min_x = min(X.T[0])
     max_x = max(X.T[0])
-    getX2 = lambda x1: - (W[0] * x1 + b) / W[1]
+
+    def getX2(x1): return - (W[0] * x1 + b) / W[1]
     plt.plot([min_x, max_x], [getX2(min_x), getX2(max_x)])
 
     plt.show()

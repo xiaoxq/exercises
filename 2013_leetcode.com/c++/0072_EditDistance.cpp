@@ -18,9 +18,8 @@ class Solution {
 
  private:
   // Only check word1[0, end1) vs word2[0, end2).
-  int minDistance(const string& word1, const int end1,
-                  const string& word2, const int end2,
-                  vector<vector<int>>& dist) {
+  int minDistance(const string& word1, const int end1, const string& word2,
+                  const int end2, vector<vector<int>>& dist) {
     if (end1 == 0 || end2 == 0) {
       return max(end1, end2);
     }
@@ -32,10 +31,9 @@ class Solution {
     if (word1[end1 - 1] == word2[end2 - 1]) {
       cache = minDistance(word1, end1 - 1, word2, end2 - 1, dist);
     } else {
-      cache = 1 + min({
-          minDistance(word1, end1 - 1, word2, end2, dist),
-          minDistance(word1, end1, word2, end2 - 1, dist),
-          minDistance(word1, end1 - 1, word2, end2 - 1, dist)});
+      cache = 1 + min({minDistance(word1, end1 - 1, word2, end2, dist),
+                       minDistance(word1, end1, word2, end2 - 1, dist),
+                       minDistance(word1, end1 - 1, word2, end2 - 1, dist)});
     }
     return cache;
   }

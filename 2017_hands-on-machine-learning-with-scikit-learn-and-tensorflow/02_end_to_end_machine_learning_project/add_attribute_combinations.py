@@ -16,5 +16,6 @@ def main():
     corr_matrix = training_set.corr()
     print(corr_matrix["median_house_value"].sort_values(ascending=False))
 
+
 if __name__ == '__main__':
     main()

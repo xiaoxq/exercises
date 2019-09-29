@@ -20,8 +20,8 @@ class Solution {
   }
 
  private:
-  int getWords(const vector<string>& words, const int maxWidth,
-                int* start, int* end) {
+  int getWords(const vector<string>& words, const int maxWidth, int* start,
+               int* end) {
     int& i = *end;
     int len = -1;
     for (i = *start; i < words.size(); ++i) {

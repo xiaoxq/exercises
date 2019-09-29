@@ -22,21 +22,15 @@ void URLify(string& str) {
 #include <vector>
 
 int main() {
-	const vector<string> test_cases = {
-			"",
-			" ",
-			"abc",
-			" abc  ",
-			"abc ",
-			"abc abc  ",
-			"abc  abc    ",
-	};
+  const vector<string> test_cases = {
+      "", " ", "abc", " abc  ", "abc ", "abc abc  ", "abc  abc    ",
+  };
 
-	for (const string& test_case : test_cases) {
+  for (const string& test_case : test_cases) {
     string to_modify = test_case;
     URLify(to_modify);
-		cout << "URLify(" << test_case << ") = " << to_modify << endl;
-	}
+    cout << "URLify(" << test_case << ") = " << to_modify << endl;
+  }
 
-	return 0;
+  return 0;
 }

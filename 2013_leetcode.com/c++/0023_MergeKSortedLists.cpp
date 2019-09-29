@@ -26,7 +26,7 @@ class Solution {
  public:
   ListNode* mergeKLists(vector<ListNode*>& lists) {
     make_heap(lists.begin(), lists.end(), cmpListNode);
-    ListNode* head = nullptr, *tail = nullptr;
+    ListNode *head = nullptr, *tail = nullptr;
     while (!lists.empty() && lists[0] != nullptr) {
       if (tail == nullptr) {
         head = tail = lists[0];

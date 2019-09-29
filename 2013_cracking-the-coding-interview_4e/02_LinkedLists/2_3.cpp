@@ -9,20 +9,15 @@
 #define NULL 0
 #endif
 
-struct Node
-{
-	int data;
-	Node* next;
+struct Node {
+  int data;
+  Node* next;
 };
 
-void deleteMe( Node* me )
-{
-	if( me==NULL || me->next==NULL )
-		return;
-	me->data = me->next->data;
-	me->next = me->next->next;
+void deleteMe(Node* me) {
+  if (me == NULL || me->next == NULL) return;
+  me->data = me->next->data;
+  me->next = me->next->next;
 
-	delete me->next;
+  delete me->next;
 }
-
-

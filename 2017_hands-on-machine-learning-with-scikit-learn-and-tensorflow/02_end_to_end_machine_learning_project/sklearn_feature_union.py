@@ -57,5 +57,6 @@ def main():
     print(housing_prepared)
     print(housing_prepared.shape)
 
+
 if __name__ == '__main__':
     main()
