@@ -49,7 +49,7 @@ model = tf.keras.models.Sequential([
 #   model = MyModel()
 
 optimiser = tf.keras.optimizers.Adam()
-model.compile(optimizer=optimiser, loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
+model.compile(optimizer=optimiser, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 # Train.
 epochs = 10
@@ -59,3 +59,10 @@ model.fit(train_x, train_y, batch_size=batch_size, epochs=epochs)
 # Evaluate.
 model.evaluate(test_x, test_y)
 model.summary()
+
+# Save and load model.
+model.save('./model.h5')
+loaded_model = tf.keras.models.load_model('./model.h5')
+# Or just save weights and load weights to a compiled model.
+#   model.save_weights('./model_weights.h5')
+#   compiled_model.load_weights('./model_weights.h5')
