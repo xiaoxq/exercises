@@ -8,4 +8,3 @@ test_videos_output
 **/target/doc/
 **/target/release/
 Cargo.lock
-Cargo.toml
