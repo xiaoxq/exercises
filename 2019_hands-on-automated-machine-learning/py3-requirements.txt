@@ -1,5 +1,0 @@
-# System requirement:
-#   sudo apt install swig
-
-auto-sklearn
-TPOT
